@@ -690,7 +690,7 @@
       feedback.textContent = 'Abrindo o WhatsApp com sua mensagem...';
       feedback.classList.remove('hidden');
 
-      window.open(`https://wa.me/5547997562680?text=${encodeURIComponent(texto.replace(/%0A/g, '\n'))}`, '_blank');
+      window.open(`https://wa.me/5547997562680?text=${encodeURIComponent(texto.replace(/%0A/g, '\n'))}`, '_blank', 'noopener,noreferrer');
 
       form.reset();
     });
