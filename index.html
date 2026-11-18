@@ -20,8 +20,8 @@
   <meta property="og:description" content="Programação de CLPs e supervisórios web em tempo real para indústrias e marcenarias de São Bento do Sul e região.">
   <meta property="og:locale" content="pt_BR">
 
-  <!-- Favicon inline (SVG) — evita requisição extra / arquivo quebrado -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f172a'/%3E%3Cpath d='M30 70 L50 30 L70 70 M38 55 L62 55' stroke='%2322d3ee' stroke-width='8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <!-- Favicon: recorte quadrado da logo real -->
+  <link rel="icon" type="image/png" href="favicon.png">
 
   <!-- Fontes: Orbitron (display/tech) + Inter (texto corrido) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,17 +38,13 @@
             display: ['Orbitron', 'sans-serif'],
             sans: ['Inter', 'sans-serif'],
           },
-          colors: {
-            cyan: {
-              glow: '#22d3ee',
-            },
-          },
           boxShadow: {
-            glow: '0 0 25px rgba(34, 211, 238, 0.35)',
-            'glow-lg': '0 0 45px rgba(34, 211, 238, 0.25)',
+            glow: '0 0 25px rgba(192, 132, 252, 0.35)',
+            'glow-lg': '0 0 45px rgba(192, 132, 252, 0.25)',
+            'glow-green': '0 0 45px rgba(52, 211, 153, 0.3)',
           },
           backgroundImage: {
-            'grid-pattern': 'linear-gradient(rgba(34,211,238,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.08) 1px, transparent 1px)',
+            'grid-pattern': 'linear-gradient(rgba(192,132,252,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(192,132,252,0.08) 1px, transparent 1px)',
           },
         },
       },
@@ -64,26 +60,26 @@
     /* Padrão de grade estilo "painel de controle / circuito" */
     .bg-grid {
       background-image:
-        linear-gradient(rgba(34,211,238,0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34,211,238,0.08) 1px, transparent 1px);
+        linear-gradient(rgba(192,132,252,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(192,132,252,0.08) 1px, transparent 1px);
       background-size: 42px 42px;
     }
 
-    /* Texto com leve glow ciano (usado nos headlines) */
+    /* Texto com leve glow roxo (usado nos headlines) */
     .text-glow {
-      text-shadow: 0 0 18px rgba(34,211,238,0.55);
+      text-shadow: 0 0 18px rgba(192,132,252,0.55);
     }
 
     /* Scrollbar discreta (estética) */
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: #0f172a; }
-    ::-webkit-scrollbar-thumb { background: #164e63; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb { background: #581c87; border-radius: 9999px; }
 
     /* Animação de pulso do botão flutuante do WhatsApp */
     @keyframes pulse-ring {
-      0%   { box-shadow: 0 0 0 0 rgba(34,211,238,0.55); }
-      70%  { box-shadow: 0 0 0 16px rgba(34,211,238,0); }
-      100% { box-shadow: 0 0 0 0 rgba(34,211,238,0); }
+      0%   { box-shadow: 0 0 0 0 rgba(192,132,252,0.55); }
+      70%  { box-shadow: 0 0 0 16px rgba(192,132,252,0); }
+      100% { box-shadow: 0 0 0 0 rgba(192,132,252,0); }
     }
     .animate-pulse-ring { animation: pulse-ring 2.4s infinite; }
 
@@ -98,33 +94,26 @@
   <!-- ====================================================================
        HEADER
        ==================================================================== -->
-  <header id="topo" class="fixed top-0 inset-x-0 z-50 border-b border-cyan-400/10 bg-slate-950/80 backdrop-blur-md">
+  <header id="topo" class="fixed top-0 inset-x-0 z-50 border-b border-purple-400/10 bg-slate-950/80 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
 
-      <!-- Logo em texto estilizado -->
-      <a href="#topo" class="flex items-center gap-2.5 group">
-        <svg class="w-8 h-8 md:w-9 md:h-9 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="96" height="96" rx="18" stroke="#22d3ee" stroke-width="4" class="opacity-70 group-hover:opacity-100 transition"/>
-          <path d="M30 70 L50 30 L70 70 M38 55 L62 55" stroke="#22d3ee" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="font-display leading-none">
-          <span class="block text-lg md:text-xl font-extrabold tracking-wide text-slate-50">LANGA TECH</span>
-          <span class="block text-[10px] md:text-xs tracking-[0.25em] text-cyan-400 -mt-0.5">&amp; AUTOMATION</span>
-        </span>
+      <!-- Logo oficial -->
+      <a href="#topo" class="flex items-center">
+        <img src="logo.png" alt="Langa Tech & Automation" class="h-10 md:h-12 w-auto rounded-md">
       </a>
 
       <!-- Navegação desktop -->
       <nav class="hidden lg:flex items-center gap-9 text-sm font-medium text-slate-300">
-        <a href="#inicio" class="hover:text-cyan-400 transition">Início</a>
-        <a href="#solucoes" class="hover:text-cyan-400 transition">Soluções</a>
-        <a href="#diferenciais" class="hover:text-cyan-400 transition">Diferenciais</a>
-        <a href="#depoimentos" class="hover:text-cyan-400 transition">Depoimentos</a>
-        <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
+        <a href="#inicio" class="hover:text-purple-400 transition">Início</a>
+        <a href="#solucoes" class="hover:text-purple-400 transition">Soluções</a>
+        <a href="#diferenciais" class="hover:text-purple-400 transition">Diferenciais</a>
+        <a href="#depoimentos" class="hover:text-purple-400 transition">Depoimentos</a>
+        <a href="#contato" class="hover:text-purple-400 transition">Contato</a>
       </nav>
 
       <div class="hidden lg:block">
         <a href="#contato"
-           class="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-bold text-slate-950 hover:bg-cyan-300 hover:shadow-glow transition-all">
+           class="inline-flex items-center gap-2 rounded-full bg-purple-400 px-5 py-2.5 text-sm font-bold text-slate-950 hover:bg-purple-300 hover:shadow-glow transition-all">
           Solicitar Orçamento
         </a>
       </div>
@@ -141,14 +130,14 @@
     </div>
 
     <!-- Menu mobile (drawer) -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-cyan-400/10 bg-slate-950/95">
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-purple-400/10 bg-slate-950/95">
       <nav class="flex flex-col px-5 py-4 gap-1 text-slate-200 text-base">
         <a href="#inicio" class="py-2.5 border-b border-slate-800/80">Início</a>
         <a href="#solucoes" class="py-2.5 border-b border-slate-800/80">Soluções</a>
         <a href="#diferenciais" class="py-2.5 border-b border-slate-800/80">Diferenciais</a>
         <a href="#depoimentos" class="py-2.5 border-b border-slate-800/80">Depoimentos</a>
         <a href="#contato" class="py-2.5">Contato</a>
-        <a href="#contato" class="mt-3 text-center rounded-full bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950">
+        <a href="#contato" class="mt-3 text-center rounded-full bg-purple-400 px-5 py-3 text-sm font-bold text-slate-950">
           Solicitar Orçamento
         </a>
       </nav>
@@ -162,37 +151,37 @@
 
     <!-- Fundo: grade estilo circuito + brilhos ciano (sem imagens externas) -->
     <div class="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_40%,transparent_100%)]"></div>
-    <div class="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]"></div>
-    <div class="absolute top-20 -right-20 w-[28rem] h-[28rem] bg-cyan-500/10 rounded-full blur-[140px]"></div>
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px]"></div>
+    <div class="absolute top-20 -right-20 w-[28rem] h-[28rem] bg-purple-500/10 rounded-full blur-[140px]"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/60 to-slate-950"></div>
 
     <div class="relative max-w-7xl mx-auto px-5 sm:px-8 text-center">
 
-      <span class="reveal inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-cyan-300 uppercase">
-        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+      <span class="reveal inline-flex items-center gap-2 rounded-full border border-purple-400/30 bg-purple-400/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-purple-300 uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
         Automação Industrial &amp; IIoT em São Bento do Sul - SC
       </span>
 
       <h1 class="reveal mt-7 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] text-slate-50">
-        Eficiência de <span class="text-cyan-400 text-glow">Indústria 4.0</span><br class="hidden sm:block">
+        Eficiência de <span class="text-purple-400 text-glow">Indústria 4.0</span><br class="hidden sm:block">
         para sua Linha de Produção
       </h1>
 
       <p class="reveal mt-6 max-w-2xl mx-auto text-base md:text-lg text-slate-400 leading-relaxed">
         Programação de CLPs e supervisórios web em tempo real: aplicamos lógica de automação
         robusta e software IIoT moderno para reduzir paradas, ganhar visibilidade e automatizar
-        processos de indústrias e marcenarias da região.
+        processos de indústrias e marcenarias da região — com atendimento 100% remoto.
       </p>
 
       <div class="reveal mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="https://wa.me/5547999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20automa%C3%A7%C3%A3o%20industrial."
            target="_blank" rel="noopener noreferrer"
-           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-cyan-400 px-7 py-3.5 text-sm md:text-base font-bold text-slate-950 hover:bg-cyan-300 shadow-glow hover:shadow-glow-lg transition-all">
+           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-purple-400 px-7 py-3.5 text-sm md:text-base font-bold text-slate-950 hover:bg-purple-300 shadow-glow hover:shadow-glow-lg transition-all">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.44 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.8a8.1 8.1 0 0 1 8.1 8.11c0 4.47-3.64 8.1-8.1 8.1a8 8 0 0 1-4.09-1.12l-.29-.17-3.14.82.84-3.06-.19-.3a8.06 8.06 0 0 1-1.24-4.3 8.1 8.1 0 0 1 8.11-8.08m-4.46 4.6c-.18 0-.47.07-.72.34s-.95.93-.95 2.27.97 2.63 1.11 2.81 1.9 3.04 4.69 4.14c2.32.92 2.79.73 3.3.69s1.63-.67 1.86-1.31.23-1.19.16-1.31-.25-.18-.52-.32-1.63-.8-1.88-.9-.43-.14-.62.14-.72.9-.88 1.08-.32.21-.6.07a6.04 6.04 0 0 1-3-2.62c-.23-.39.23-.37.65-1.21.07-.14.04-.27-.02-.39s-.62-1.49-.85-2.04-.46-.46-.62-.47z"/></svg>
           Falar com Engenheiro via WhatsApp
         </a>
         <a href="#solucoes"
-           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-slate-600 px-7 py-3.5 text-sm md:text-base font-semibold text-slate-200 hover:border-cyan-400/60 hover:text-cyan-300 transition-all">
+           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-slate-600 px-7 py-3.5 text-sm md:text-base font-semibold text-slate-200 hover:border-purple-400/60 hover:text-purple-300 transition-all">
           Ver Soluções e Pacotes
         </a>
       </div>
@@ -200,16 +189,16 @@
       <!-- Mini indicadores de confiança -->
       <div class="reveal mt-14 grid grid-cols-3 gap-4 max-w-xl mx-auto text-center">
         <div>
-          <p class="font-display text-2xl md:text-3xl text-cyan-400">CNPJ</p>
+          <p class="font-display text-2xl md:text-3xl text-purple-400">CNPJ</p>
           <p class="text-[11px] md:text-xs text-slate-500 mt-1 uppercase tracking-wide">Empresa Ativa</p>
         </div>
         <div class="border-x border-slate-800">
-          <p class="font-display text-2xl md:text-3xl text-cyan-400">24/7</p>
+          <p class="font-display text-2xl md:text-3xl text-purple-400">24/7</p>
           <p class="text-[11px] md:text-xs text-slate-500 mt-1 uppercase tracking-wide">Monitoramento IIoT</p>
         </div>
         <div>
-          <p class="font-display text-2xl md:text-3xl text-cyan-400">SBS</p>
-          <p class="text-[11px] md:text-xs text-slate-500 mt-1 uppercase tracking-wide">Atendimento Local</p>
+          <p class="font-display text-2xl md:text-3xl text-purple-400">100%</p>
+          <p class="text-[11px] md:text-xs text-slate-500 mt-1 uppercase tracking-wide">Atendimento Remoto</p>
         </div>
       </div>
     </div>
@@ -222,7 +211,7 @@
     <div class="max-w-7xl mx-auto px-5 sm:px-8">
 
       <div class="reveal text-center max-w-2xl mx-auto mb-14 md:mb-20">
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">Nossas Soluções</span>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-purple-400">Nossas Soluções</span>
         <h2 class="font-display mt-3 text-3xl md:text-4xl font-extrabold text-slate-50">Site, IoT e Programação de CLP</h2>
         <p class="mt-4 text-slate-400">
           Trabalho 100% focado em software: você escolhe o quanto precisa — só o site de supervisão,
@@ -234,69 +223,69 @@
       <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
 
         <!-- PACOTE 1 — SITE DE SUPERVISÃO -->
-        <div class="reveal flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-7 md:p-8 hover:border-cyan-400/40 hover:shadow-glow transition-all">
-          <div class="w-12 h-12 rounded-xl bg-cyan-400/10 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+        <div class="reveal flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-7 md:p-8 hover:border-purple-400/40 hover:shadow-glow transition-all">
+          <div class="w-12 h-12 rounded-xl bg-purple-400/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
           </div>
           <h3 class="font-display text-xl font-bold text-slate-50">Site</h3>
           <p class="mt-2 text-sm text-slate-400">Desenvolvimento do site/dashboard de supervisão — ideal para quem já tem a comunicação do CLP pronta e só precisa de uma interface web.</p>
 
           <ul class="mt-6 space-y-3 text-sm text-slate-300 flex-1">
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Desenvolvimento do site/dashboard de supervisão</li>
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Interface web responsiva para acompanhar a produção</li>
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Integração com a comunicação já existente do CLP</li>
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Testes funcionais e entrega do projeto</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Desenvolvimento do site/dashboard de supervisão</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Interface web responsiva para acompanhar a produção</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Integração com a comunicação já existente do CLP</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Testes funcionais e entrega do projeto</li>
           </ul>
 
           <div class="mt-8 pt-6 border-t border-slate-800">
             <p class="font-display text-2xl text-slate-50">Sob Consulta</p>
             <p class="text-xs text-slate-500 mt-1">Valor estimado conforme escopo do projeto</p>
-            <a href="#contato" class="mt-5 block text-center rounded-full border border-slate-700 py-3 text-sm font-semibold hover:border-cyan-400 hover:text-cyan-300 transition">Solicitar Orçamento</a>
+            <a href="#contato" class="mt-5 block text-center rounded-full border border-slate-700 py-3 text-sm font-semibold hover:border-purple-400 hover:text-purple-300 transition">Solicitar Orçamento</a>
           </div>
         </div>
 
         <!-- PACOTE 2 — SITE + IOT (destaque) -->
-        <div class="reveal relative flex flex-col rounded-2xl border-2 border-cyan-400/60 bg-slate-950 p-7 md:p-8 shadow-glow-lg md:-translate-y-3">
-          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-cyan-400 px-4 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-950">Mais Procurado</span>
-          <div class="w-12 h-12 rounded-xl bg-cyan-400/10 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 15a4 4 0 004 4h10a4 4 0 000-8 5 5 0 00-9.6-1.5A4 4 0 003 15z"/></svg>
+        <div class="reveal relative flex flex-col rounded-2xl border-2 border-emerald-400/60 bg-slate-950 p-7 md:p-8 shadow-glow-green md:-translate-y-3">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-emerald-400 px-4 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-950">Mais Procurado</span>
+          <div class="w-12 h-12 rounded-xl bg-emerald-400/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 15a4 4 0 004 4h10a4 4 0 000-8 5 5 0 00-9.6-1.5A4 4 0 003 15z"/></svg>
           </div>
           <h3 class="font-display text-xl font-bold text-slate-50">Site + IoT</h3>
           <p class="mt-2 text-sm text-slate-400">Site de supervisão completo com a camada de conectividade IoT — conectamos o CLP já programado à nuvem e entregamos o dashboard web.</p>
 
           <ul class="mt-6 space-y-3 text-sm text-slate-300 flex-1">
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tudo do pacote Site</li>
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Configuração da comunicação IoT (CLP → nuvem)</li>
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Acesso remoto 24/7 via navegador</li>
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Alertas e status de máquina online/offline</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tudo do pacote Site</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Configuração da comunicação IoT (CLP → nuvem)</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Acesso remoto 24/7 via navegador</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Alertas e status de máquina online/offline</li>
           </ul>
 
           <div class="mt-8 pt-6 border-t border-slate-800">
-            <p class="font-display text-2xl text-cyan-400">Sob Consulta</p>
+            <p class="font-display text-2xl text-emerald-400">Sob Consulta</p>
             <p class="text-xs text-slate-500 mt-1">Valor estimado conforme nº de máquinas</p>
-            <a href="#contato" class="mt-5 block text-center rounded-full bg-cyan-400 py-3 text-sm font-bold text-slate-950 hover:bg-cyan-300 transition">Solicitar Orçamento</a>
+            <a href="#contato" class="mt-5 block text-center rounded-full bg-emerald-400 py-3 text-sm font-bold text-slate-950 hover:bg-emerald-300 transition">Solicitar Orçamento</a>
           </div>
         </div>
 
         <!-- PACOTE 3 — SITE + IOT + PROGRAMAÇÃO DE CLP -->
-        <div class="reveal flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-7 md:p-8 hover:border-cyan-400/40 hover:shadow-glow transition-all">
-          <div class="w-12 h-12 rounded-xl bg-cyan-400/10 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <div class="reveal flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-7 md:p-8 hover:border-purple-400/40 hover:shadow-glow transition-all">
+          <div class="w-12 h-12 rounded-xl bg-purple-400/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
           <h3 class="font-display text-xl font-bold text-slate-50">Site + IoT + CLP</h3>
           <p class="mt-2 text-sm text-slate-400">Pacote completo: programamos a lógica do CLP, configuramos a conectividade IoT e entregamos o site de supervisão — tudo em um projeto só.</p>
 
           <ul class="mt-6 space-y-3 text-sm text-slate-300 flex-1">
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tudo do pacote Site + IoT</li>
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Programação e parametrização do CLP</li>
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Desenvolvimento da lógica de controle de processo</li>
-            <li class="flex gap-2.5"><svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Projeto fechado: do CLP até a nuvem</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tudo do pacote Site + IoT</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Programação e parametrização do CLP</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Desenvolvimento da lógica de controle de processo</li>
+            <li class="flex gap-2.5"><svg class="w-5 h-5 text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Projeto fechado: do CLP até a nuvem</li>
           </ul>
 
           <div class="mt-8 pt-6 border-t border-slate-800">
             <p class="font-display text-2xl text-slate-50">Sob Consulta</p>
             <p class="text-xs text-slate-500 mt-1">Valor estimado conforme complexidade do processo</p>
-            <a href="#contato" class="mt-5 block text-center rounded-full border border-slate-700 py-3 text-sm font-semibold hover:border-cyan-400 hover:text-cyan-300 transition">Solicitar Orçamento</a>
+            <a href="#contato" class="mt-5 block text-center rounded-full border border-slate-700 py-3 text-sm font-semibold hover:border-purple-400 hover:text-purple-300 transition">Solicitar Orçamento</a>
           </div>
         </div>
 
@@ -308,7 +297,7 @@
           <h3 class="font-semibold text-slate-50">Manutenção &amp; Consultoria Técnica</h3>
           <p class="mt-1 text-sm text-slate-400">Precisa só de suporte pontual? Valor hora técnico para manutenção de lógica/programação e consultoria em automação, sob consulta.</p>
         </div>
-        <a href="#contato" class="shrink-0 inline-flex items-center justify-center rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold hover:border-cyan-400 hover:text-cyan-300 transition">Falar sobre Suporte</a>
+        <a href="#contato" class="shrink-0 inline-flex items-center justify-center rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold hover:border-purple-400 hover:text-purple-300 transition">Falar sobre Suporte</a>
       </div>
     </div>
   </section>
@@ -321,43 +310,43 @@
 
     <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
       <div class="reveal text-center max-w-2xl mx-auto mb-14 md:mb-20">
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">Diferenciais</span>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-purple-400">Diferenciais</span>
         <h2 class="font-display mt-3 text-3xl md:text-4xl font-extrabold text-slate-50">Por que Escolher a Langa Tech</h2>
         <p class="mt-4 text-slate-400">Engenharia local, tecnologia de ponta e a segurança de uma empresa formalizada.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <div class="reveal rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-cyan-400/40 transition">
-          <div class="w-11 h-11 rounded-lg bg-cyan-400/10 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <div class="reveal rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-purple-400/40 transition">
+          <div class="w-11 h-11 rounded-lg bg-purple-400/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
-          <h3 class="font-semibold text-slate-50">Atendimento Local e Ágil</h3>
-          <p class="mt-2 text-sm text-slate-400">Baseados em São Bento do Sul, com resposta rápida para chamados e emergências em toda a região.</p>
+          <h3 class="font-semibold text-slate-50">Atendimento 100% Remoto</h3>
+          <p class="mt-2 text-sm text-slate-400">Fazemos toda a configuração do CLP para IoT remotamente, com base nos dados da sua máquina — rápido, sem precisar de visita técnica presencial.</p>
         </div>
 
-        <div class="reveal rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-cyan-400/40 transition">
-          <div class="w-11 h-11 rounded-lg bg-cyan-400/10 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <div class="reveal rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-purple-400/40 transition">
+          <div class="w-11 h-11 rounded-lg bg-purple-400/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
           <h3 class="font-semibold text-slate-50">CLP + IIoT Integrados</h3>
           <p class="mt-2 text-sm text-slate-400">Conectamos a lógica de CLPs e painéis já instalados a sistemas de supervisão IIoT modernos — do chão de fábrica ao dashboard.</p>
         </div>
 
-        <div class="reveal rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-cyan-400/40 transition">
-          <div class="w-11 h-11 rounded-lg bg-cyan-400/10 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="reveal rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-purple-400/40 transition">
+          <div class="w-11 h-11 rounded-lg bg-purple-400/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
           <h3 class="font-semibold text-slate-50">Empresa Formalizada</h3>
           <p class="mt-2 text-sm text-slate-400">CNPJ ativo: segurança jurídica, nota fiscal e profissionalismo em cada contrato.</p>
         </div>
 
-        <div class="reveal rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-cyan-400/40 transition">
-          <div class="w-11 h-11 rounded-lg bg-cyan-400/10 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l6.16-3.422A12.083 12.083 0 0112 20.5a12.083 12.083 0 01-6.16-9.922L12 14z"/></svg>
+        <div class="reveal rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-purple-400/40 transition">
+          <div class="w-11 h-11 rounded-lg bg-purple-400/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l6.16-3.422A12.083 12.083 0 0112 20.5a12.083 12.083 0 01-6.16-9.922L12 14z"/></svg>
           </div>
-          <h3 class="font-semibold text-slate-50">Engenharia Especializada</h3>
-          <p class="mt-2 text-sm text-slate-400">Projetos conduzidos por engenheiro de controle e automação, com rigor técnico do início ao fim.</p>
+          <h3 class="font-semibold text-slate-50">Nosso Método</h3>
+          <p class="mt-2 text-sm text-slate-400">Entregamos sempre a melhor solução para o cliente, buscando o que cabe no orçamento dele — sem pacote engessado.</p>
         </div>
 
       </div>
@@ -379,7 +368,7 @@
   <section id="depoimentos" class="py-20 md:py-28 bg-slate-900/40 border-y border-slate-800/80">
     <div class="max-w-7xl mx-auto px-5 sm:px-8">
       <div class="reveal text-center max-w-2xl mx-auto mb-14 md:mb-20">
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">Prova Social</span>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-purple-400">Prova Social</span>
         <h2 class="font-display mt-3 text-3xl md:text-4xl font-extrabold text-slate-50">O que dizem nossos clientes</h2>
         <p class="mt-4 text-slate-400">Espaço reservado para depoimentos reais — substitua os colchetes pelos relatos dos seus clientes.</p>
       </div>
@@ -387,7 +376,7 @@
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Card de depoimento (template) — repita este bloco para cada depoimento real -->
         <div class="reveal rounded-2xl border border-slate-800 bg-slate-950/60 p-7">
-          <div class="flex gap-1 text-cyan-400 mb-4">
+          <div class="flex gap-1 text-purple-400 mb-4">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.957z"/></svg>
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.957z"/></svg>
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.957z"/></svg>
@@ -402,7 +391,7 @@
         </div>
 
         <div class="reveal rounded-2xl border border-slate-800 bg-slate-950/60 p-7">
-          <div class="flex gap-1 text-cyan-400 mb-4">
+          <div class="flex gap-1 text-purple-400 mb-4">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.957z"/></svg>
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.957z"/></svg>
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.957z"/></svg>
@@ -417,7 +406,7 @@
         </div>
 
         <div class="reveal rounded-2xl border border-slate-800 bg-slate-950/60 p-7">
-          <div class="flex gap-1 text-cyan-400 mb-4">
+          <div class="flex gap-1 text-purple-400 mb-4">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.957z"/></svg>
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.957z"/></svg>
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.957z"/></svg>
@@ -445,7 +434,7 @@
 
         <!-- Coluna de informações -->
         <div class="reveal lg:col-span-2">
-          <span class="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">Contato</span>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-purple-400">Contato</span>
           <h2 class="font-display mt-3 text-3xl md:text-4xl font-extrabold text-slate-50">Vamos automatizar sua produção?</h2>
           <p class="mt-4 text-slate-400">
             Preencha o formulário ou fale diretamente conosco. Atendemos São Bento do Sul e toda a região.
@@ -453,14 +442,14 @@
 
           <div class="mt-8 space-y-5 text-sm">
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <svg class="w-5 h-5 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               <div>
                 <p class="text-slate-200">Rua Tereza Linzmeyer, 165 — Oxford</p>
                 <p class="text-slate-500">São Bento do Sul - SC</p>
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <svg class="w-5 h-5 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               <div>
                 <p class="text-slate-200">(47) 9 9999-9999</p>
                 <!-- ⚠️ Substitua pelo número real de WhatsApp da empresa -->
@@ -468,7 +457,7 @@
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <svg class="w-5 h-5 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               <div>
                 <p class="text-slate-200">contato@langatech.com.br</p>
                 <!-- ⚠️ Substitua pelo e-mail comercial real -->
@@ -476,7 +465,7 @@
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <svg class="w-5 h-5 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               <div>
                 <p class="text-slate-200">CNPJ: 00.000.000/0001-00</p>
                 <!-- ⚠️ Substitua pelo CNPJ real da Langa Tech & Automation -->
@@ -506,13 +495,13 @@
               <div>
                 <label for="nome" class="block text-sm font-medium text-slate-300 mb-1.5">Nome</label>
                 <input type="text" id="nome" name="nome" required
-                       class="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-400"
+                       class="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-400/60 focus:border-purple-400"
                        placeholder="Seu nome completo">
               </div>
               <div>
                 <label for="empresa" class="block text-sm font-medium text-slate-300 mb-1.5">Empresa</label>
                 <input type="text" id="empresa" name="empresa"
-                       class="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-400"
+                       class="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-400/60 focus:border-purple-400"
                        placeholder="Nome da sua empresa">
               </div>
             </div>
@@ -520,22 +509,22 @@
             <div>
               <label for="telefone" class="block text-sm font-medium text-slate-300 mb-1.5">Telefone</label>
               <input type="tel" id="telefone" name="telefone" required
-                     class="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-400"
+                     class="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-400/60 focus:border-purple-400"
                      placeholder="(47) 9 9999-9999">
             </div>
 
             <div>
               <label for="mensagem" class="block text-sm font-medium text-slate-300 mb-1.5">Mensagem</label>
               <textarea id="mensagem" name="mensagem" rows="4" required
-                        class="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-400 resize-none"
+                        class="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-400/60 focus:border-purple-400 resize-none"
                         placeholder="Conte brevemente sobre o projeto ou a máquina que precisa de automação..."></textarea>
             </div>
 
             <button type="submit"
-                    class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 hover:bg-cyan-300 hover:shadow-glow transition-all">
+                    class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-purple-400 px-6 py-3.5 text-sm font-bold text-slate-950 hover:bg-purple-300 hover:shadow-glow transition-all">
               Enviar Mensagem
             </button>
-            <p id="form-feedback" class="hidden text-sm text-cyan-400 text-center"></p>
+            <p id="form-feedback" class="hidden text-sm text-purple-400 text-center"></p>
           </form>
         </div>
       </div>
@@ -554,7 +543,7 @@
   <a href="https://wa.me/5547999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20automa%C3%A7%C3%A3o%20industrial."
      target="_blank" rel="noopener noreferrer"
      aria-label="Falar no WhatsApp"
-     class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-cyan-400 text-slate-950 shadow-glow-lg hover:bg-cyan-300 hover:scale-105 transition-all animate-pulse-ring">
+     class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-purple-400 text-slate-950 shadow-glow-lg hover:bg-purple-300 hover:scale-105 transition-all animate-pulse-ring">
     <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.44 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.8a8.1 8.1 0 0 1 8.1 8.11c0 4.47-3.64 8.1-8.1 8.1a8 8 0 0 1-4.09-1.12l-.29-.17-3.14.82.84-3.06-.19-.3a8.06 8.06 0 0 1-1.24-4.3 8.1 8.1 0 0 1 8.11-8.08m-4.46 4.6c-.18 0-.47.07-.72.34s-.95.93-.95 2.27.97 2.63 1.11 2.81 1.9 3.04 4.69 4.14c2.32.92 2.79.73 3.3.69s1.63-.67 1.86-1.31.23-1.19.16-1.31-.25-.18-.52-.32-1.63-.8-1.88-.9-.43-.14-.62.14-.72.9-.88 1.08-.32.21-.6.07a6.04 6.04 0 0 1-3-2.62c-.23-.39.23-.37.65-1.21.07-.14.04-.27-.02-.39s-.62-1.49-.85-2.04-.46-.46-.62-.47z"/></svg>
   </a>
 
