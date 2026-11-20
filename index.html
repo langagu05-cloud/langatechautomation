@@ -8,6 +8,16 @@
        build step, sem assets externos além de fontes/Tailwind CDN.
        ============================================================ -->
   <meta charset="UTF-8">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJLKMYV7DE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CJLKMYV7DE');
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Langa Tech & Automation | Engenharia, Automação e Tecnologia em São Bento do Sul - SC</title>
   <meta name="description" content="Programação de CLPs, automação e soluções em tecnologia para indústrias, comércios, escritórios e projetos sob medida. Atendimento em São Bento do Sul - SC e região.">
@@ -762,9 +772,22 @@
       feedback.classList.remove('hidden');
 
       window.open(`https://wa.me/5547997562680?text=${encodeURIComponent(texto.replace(/%0A/g, '\n'))}`, '_blank', 'noopener,noreferrer');
+      if (window.gtag) gtag('event', 'contact_form_submit', { event_category: 'engagement' });
 
       form.reset();
     });
+
+    // ---- Eventos de analytics (GA4) nos principais pontos de conversão ----
+    function trackClicks(selector, eventName) {
+      document.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (window.gtag) gtag('event', eventName, { event_category: 'engagement', link_url: el.href });
+        });
+      });
+    }
+    trackClicks('a[href^="https://wa.me/"]', 'whatsapp_click');
+    trackClicks('a[href="briefing.html"]', 'briefing_click');
+    trackClicks('a[href^="https://cal.com/"]', 'meeting_booking_click');
   </script>
 
 </body>

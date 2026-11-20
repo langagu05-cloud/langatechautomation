@@ -8,6 +8,15 @@
        step, sem dependências externas além de fontes/Tailwind.
        ============================================================ -->
   <meta charset="UTF-8">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJLKMYV7DE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CJLKMYV7DE');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Briefing do Site | Langa Tech & Automation</title>
   <meta name="description" content="Conte pra Langa Tech & Automation o que você precisa no seu novo site — o que vende, os objetivos e a paleta de cores.">
@@ -354,6 +363,10 @@
     });
     Array.prototype.slice.call(document.querySelectorAll('#chk1,#chk2,#chk3,#chk4,#chk5,#chk6')).forEach(function(el){
       el.addEventListener('change', refreshSummary);
+    });
+
+    document.getElementById('sendBtn').addEventListener('click', function(){
+      if (window.gtag) gtag('event', 'briefing_submit', { event_category: 'engagement' });
     });
 
     renderSwatches();
